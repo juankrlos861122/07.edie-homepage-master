@@ -45,16 +45,6 @@ header {
     margin-block-end: 48px;
 }
 
-header nav ul li>a {
-    margin-inline-start: 24px;
-    font-family: var(--font-Poppins);
-    font-size: 1.6rem;
-    font-weight: 500;
-    line-height: 3rem;
-    color: var(--primary-font-color);
-    text-decoration: none;
-}
-
 header h1 {
     font-family: var(--font-Heebo);
     font-size: 2.4rem;
@@ -63,9 +53,64 @@ header h1 {
     color: var(--primary-font-color);
 }
 
-header nav {
-    display: none;
+header .menu-open {
+    display:grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white-color);
+    transition: ease-in .5s;
 }
+
+header .menu-close {
+    display:grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 100%;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white-color);
+    transition: ease-in-out .5s;
+}
+
+nav>ul {
+    text-align: center;
+}
+
+nav>a {
+    margin-block-start: 41px;
+    margin-inline-end: 5%;
+    justify-self: end;
+    border-radius: 50%;    
+    color: var(--primary-font-color);
+}
+
+header nav ul li>a {
+    margin-inline-start: 24px;
+
+    text-decoration: none;
+
+    font-family: var(--font-Poppins);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 3rem;
+    color: var(--primary-font-color);
+}
+
 
 /*---------- Section Home ----------*/
 
@@ -640,9 +685,22 @@ footer {
         display: none;
     }
 
-    header nav {
-        display: block;
-        align-self: center;
+    header .menu-close {
+        display: flex;
+        position: sticky;
+        width: auto;
+        height: auto;
+    }
+
+    header .menu-open {
+        display: flex;
+        position: sticky;
+        width: auto;
+        height: auto;
+    }
+
+    nav>a {
+        display: none;
     }
 
     header nav>ul {
