@@ -8,6 +8,16 @@ const desactivarBoton = (x) => {
     x.classList.add('disabled-button');
 };
 
+const menuToggle = (x) => {
+    if (x.value == 'menu-close'){
+        x.remove('menu-close');
+        x.add('menu-open');
+    } else {
+        x.add('menu-close');
+        x.remove('menu-open');
+    }
+}
+
 
 document.getElementById('design').onmouseover = function(){
     const b1 = document.getElementById('button1');
@@ -37,4 +47,14 @@ document.getElementById('frontend').onmouseout = function(){
 document.getElementById('backend').onmouseout = function(){
     const b1 = document.getElementById('button3');
     desactivarBoton(b1);
+}
+
+document.getElementById('btn-menu').onclick = function(){
+    const menu = document.getElementById('nav').classList;
+    menuToggle(menu);
+}
+
+document.getElementById('btn-close').onclick = function(){
+    const menu = document.getElementById('nav').classList;
+    menuToggle(menu);
 }
